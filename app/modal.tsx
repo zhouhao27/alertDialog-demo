@@ -3,6 +3,7 @@ import { Platform, StyleSheet } from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
+import CustomAlert from '@/components/CustomAlert';
 
 export default function ModalScreen() {
   return (
@@ -11,6 +12,20 @@ export default function ModalScreen() {
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="app/modal.tsx" />
 
+      <CustomAlert 
+        title="Testing" 
+        message='Here is a testing message.' 
+        isVisible={true} 
+        icon={{
+          name: "alert-triangle",
+          type: "Feather",
+          color: 'red'
+        }}
+        confirmButton={{
+          title: "OK",
+          onPress: () => console.log('ok')
+        }}
+      />     
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
     </View>
